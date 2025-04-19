@@ -1,9 +1,9 @@
 const express=require('express')
-const {InfoController}=require('./airplane-routes');
+const InfoController = require('../../controllers/info-controller');
 const  airplaneRoutes=require('./airplane-routes');
+const cityRoutes=require('./city-routes');
 const router=express.Router();
 router.use('/airplane',airplaneRoutes);
-router.get('/info',(req,res)=>{
-    return res.json({msg:"ok"});
-})
+router.use('/city',cityRoutes); 
+router.get('/info',InfoController.info);
 module.exports=router;
